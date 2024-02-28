@@ -2,7 +2,7 @@
     "config": "air",
     "type": "app",
     "files": [
-        "src/Main.as"
+        "src/WheelAreaApplication.mxml"
     ],
     "application": "app.xml",
     "compilerOptions": {
