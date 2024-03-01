@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?> 
 <application xmlns="http://ns.adobe.com/air/application/50.0"> 
-    <id>com.qux.foo</id> 
+    <id>com.hydroper.fortoressexy</id> 
     <versionNumber>1.0</versionNumber> 
-    <filename>Foo</filename> 
+    <filename>FortoresseXY</filename> 
     <initialWindow>
-        <title>Foo</title>
+        <title>Fortoresse XY</title>
         <content>build/app.swf</content> 
         <visible>true</visible> 
         <width>1024</width> 
