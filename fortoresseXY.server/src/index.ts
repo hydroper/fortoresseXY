@@ -1,8 +1,12 @@
 import WebSocket, { RawData, WebSocketServer } from "ws";
 import { OptionValues, program } from "commander";
 
+const frameRate: number = 60;
+
 class FortoresseXYServer {
+    private stopSchedule: Date | null = null;
     private wss: WebSocketServer | null = null;
+    private readonly peers: Map<WebSocket, Peer> = new Map<WebSocket, Peer>;
 
     public constructor() {
         // Parse command line
@@ -11,6 +15,9 @@ class FortoresseXYServer {
 
         // Initialize WebSocket server
         this.initialize(port);
+
+        // Simulation loop
+        this.simulationLoop();
     }
 
     private parseCommandLine(): OptionValues {
@@ -32,14 +39,19 @@ class FortoresseXYServer {
     }
 
     private handleConnection(ws: WebSocket): void {
+        const peer = new Peer(ws);
+        this.peers.set(ws, peer);
+
         // Handle error
         ws.on("error", (error: Error): void => {
+            this.peers.delete(ws);
             console.error(error.message);
             this.autoClose();
         });
 
         // Handle close
         ws.on("close", (): void => {
+            this.peers.delete(ws);
             this.autoClose();
         });
 
@@ -52,9 +64,35 @@ class FortoresseXYServer {
     }
 
     private autoClose(): void {
-        // - If number of peers is non zero, return.
-        // - Schedule server execution stop.
-        toDo();
+        if (this.peers.size == 0) {
+            this.stopSchedule = new Date();
+        }
+    }
+
+    private simulationLoop(): void {
+        this.simulate();
+
+        const interval = setInterval((): void => {
+            // Handle execution stop
+            if (this.stopSchedule != null && Date.now() >= this.stopSchedule.valueOf()) {
+                clearInterval(interval);
+                this.wss.close();
+                return;
+            }
+
+            this.simulate();
+        }, 1_000 / frameRate);
+    }
+
+    private simulate(): void {
+    }
+}
+
+class Peer {
+    public readonly ws: WebSocket;
+
+    public constructor(ws: WebSocket) {
+        this.ws = ws;
     }
 }
 
