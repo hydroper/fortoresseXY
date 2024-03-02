@@ -17,22 +17,24 @@ export class Human {
     }
 
     public move(): void {
-        if (this.movingLeft) {
-            //
-        } else if (this.movingRight) {
-            //
-        } else {
-            //
+        if (this.movingLeft && !this.sitting) {
+            Body.applyForce(this.body, this.body.position, Vector.create(-moveSpeed, 0));
+        } else if (this.movingRight && !this.sitting) {
+            Body.applyForce(this.body, this.body.position, Vector.create(+moveSpeed, 0));
         }
 
         const v = Body.getVelocity(this.body);
 
-        // Finish jump
+        // Finish jumping
         if (this.jumping && v.y > -1 && v.y < 1) {
             this.jumping = false;
         }
 
         // Set maximum velocity
-        Body.setVelocity(this.body, Vector.create(v.x < -maxMoveSpeed ? -maxMoveSpeed : v.x > maxMoveSpeed ? maxMoveSpeed : v.x, v.y));
+        Body.setVelocity(this.body, Vector.create(v.x < -maxMoveSpeed ? -maxMoveSpeed : v.x > +maxMoveSpeed ? +maxMoveSpeed : v.x, v.y));
+
+        // Prevent rotation
+        Body.setAngle(this.body, 0);
+        Body.setAngularVelocity(this.body, 0);
     }
 }
