@@ -2,6 +2,7 @@ import WebSocket, { RawData, WebSocketServer } from "ws";
 import { OptionValues, program } from "commander";
 import { Engine } from "matter-js";
 import { Human } from "./lib/Human";
+import { WorldEntityPacket, WorldPacket } from "./lib/WorldPacket";
 
 const frameRate: number = 60;
 
@@ -75,7 +76,8 @@ class FortoresseXYServer {
     }
 
     private simulationLoop(): void {
-        this.simulate();
+        let lastTickMs: number = Date.now();
+        this.simulate(Date.now() - lastTickMs);
 
         const interval = setInterval((): void => {
             // Handle execution stop
@@ -85,16 +87,66 @@ class FortoresseXYServer {
                 return;
             }
 
-            this.simulate();
+            this.simulate(Date.now() - lastTickMs);
+
+            lastTickMs = Date.now();
         }, 1_000 / frameRate);
     }
 
-    private simulate(): void {
+    private simulate(delta: number): void {
+        // Move humans
+        this.moveHumans();
+
+        // Step simulation
+        Engine.update(this.engine, delta);
+
+        // Send world packets to all peers
+        this.sendWorldPackets();
+    }
+
+    private moveHumans(): void {
+        for (const [, peer] of this.peers) {
+            if (peer.human != null) {
+                peer.human.move();
+            }
+        }
+    }
+
+    private sendWorldPackets(): void {
+        const worldPacket = JSON.stringify(this.worldPacket());
+        for (const [ws, ] of this.peers) {
+            ws.send(worldPacket);
+        }
+    }
+
+    private worldPacket(): WorldPacket {
+        const entities: WorldEntityPacket[] = [];
+        for (const [, peer] of this.peers) {
+            const { human } = peer;
+            if (human != null) {
+                entities.push({
+                    type: "human",
+                    playerId: peer.playerId,
+                    x: human.body.position.x,
+                    y: human.body.position.y,
+                    facingLeft: human.facingLeft,
+                    facingRight: human.facingRight,
+                    sitting: human.sitting,
+                    movingLeft: human.movingLeft,
+                    movingRight: human.movingRight,
+                });
+            }
+        }
+        return {
+            type: "world",
+            entities,
+        };
     }
 }
 
 class Peer {
     public readonly ws: WebSocket;
+    public playerId: string = "";
     public human: Human | null = null;
 
     public constructor(ws: WebSocket) {
