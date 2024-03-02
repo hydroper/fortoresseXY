@@ -7,27 +7,25 @@ export class Human {
     public body: Matter.Body;
     public facingLeft: boolean = false;
     public facingRight: boolean = false;
-    public sitting: boolean = false;
-    public jumping: boolean = false;
-    public movingLeft: boolean = false;
-    public movingRight: boolean = false;
+    public isMoving: boolean = false;
+    public pose: HumanPoseType = "standing";
 
     public constructor(body: Body) {
         this.body = body;
     }
 
     public move(): void {
-        if (this.movingLeft && !this.sitting) {
+        if (this.facingLeft && this.isMoving) {
             Body.applyForce(this.body, this.body.position, Vector.create(-moveSpeed, 0));
-        } else if (this.movingRight && !this.sitting) {
+        } else if (this.facingRight && this.isMoving) {
             Body.applyForce(this.body, this.body.position, Vector.create(+moveSpeed, 0));
         }
 
         const v = Body.getVelocity(this.body);
 
         // Finish jumping
-        if (this.jumping && v.y > -1 && v.y < 1) {
-            this.jumping = false;
+        if (this.pose == "jumping" && v.y > -1 && v.y < 1) {
+            this.pose = "standing";
         }
 
         // Set maximum velocity
@@ -38,3 +36,9 @@ export class Human {
         Body.setAngularVelocity(this.body, 0);
     }
 }
+
+export type HumanPoseType =
+    "standing"|
+    "sitting" |
+    "jumping" |
+    "moving";

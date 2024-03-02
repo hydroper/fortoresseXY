@@ -1,3 +1,5 @@
+import { HumanPoseType } from "./Human";
+
 export type WorldPacket = {
     type: "world",
     entities: WorldEntityPacket[],
@@ -10,7 +12,5 @@ export type WorldEntityPacket = {
     y: number,
     facingLeft: boolean,
     facingRight: boolean,
-    sitting: boolean,
-    movingLeft: boolean,
-    movingRight: boolean,
+    pose: HumanPoseType,
 };

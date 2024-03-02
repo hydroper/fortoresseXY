@@ -131,9 +131,7 @@ class FortoresseXYServer {
                     y: human.body.position.y,
                     facingLeft: human.facingLeft,
                     facingRight: human.facingRight,
-                    sitting: human.sitting,
-                    movingLeft: human.movingLeft,
-                    movingRight: human.movingRight,
+                    pose: human.pose,
                 });
             }
         }
