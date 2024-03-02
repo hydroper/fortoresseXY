@@ -42,9 +42,9 @@ Expected tools:
 
 ## Server side
 
-The server side uses Node.js and is still beginning. It uses:
+The server side uses Node.js and is still beginning.
 
-* [Matter.js](https://brm.io/matter-js/) (physics simulation)
-* [`ws`](https://www.npmjs.com/package/ws) (WebSocket server)
+[![](https://img.shields.io/badge/Matter%20Physics-gray)](https://brm.io/matter-js)
+[![](https://img.shields.io/badge/WebSocket-gray)](https://www.npmjs.com/package/ws)
 
-The database is still undecided.
+*Database*: undecided.
