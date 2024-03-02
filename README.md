@@ -1,8 +1,10 @@
-# Fortoresse XY
+<p align="center">
+  <img src="./assets/logo.png" width="418">
+</p>
 
 Fortoresse XY is a free world, 2D shooter multiplayer game in early development.
 
-## Origin
+## Origins
 
 Fortoresse XY has its roots from the original Fortoresse game by the Atelier 801 company. There are several differences planned:
 
