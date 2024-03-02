@@ -1,8 +1,19 @@
 # Fortoresse XY
 
-A multiplayer game beginning development. It will take the form of the Atelier 801's Fortoresse game, however it will function vastly differently.
+Fortoresse XY is a free world, 2D shooter multiplayer game in early development.
 
-It is preceded by the failed attempt of another multiplayer game.
+## Origin
+
+Fortoresse XY has its roots from the original Fortoresse game by the Atelier 801 company. There are several differences planned:
+
+* Crossing endpoints of a level would lead to another level.
+* Pixel buildings would be substituted by higher buildings, such as breakable shields and slopes.
+
+Planned features:
+
+* Native servers
+* User servers
+  * Scripting
 
 ## Discussions
 
@@ -12,18 +23,20 @@ Use the [discussion forum](https://github.com/hydroper/fortoresseXY/discussions)
 
 The client side is currently empty, but will use:
 
-* [Adobe AIR](https://airsdk.dev)
+* [Samsung HARMAN AIR](https://airsdk.dev)
+  * The AIR SDK overlay is overlaid into the Apache Flex SDK.
+  * AIR supports native WebSocket as of 2024.
 * [Apache Flex](https://flex.apache.org)
 
-Adobe AIR added native WebSocket support recently, and Adobe Animate will be used for developing movie clips.
+Expected tools:
 
-Framework documentation:
+* Adobe Animate for graphics assets.
 
-* [AIR SDK site](https://airsdk.dev)
-* [Apache Flex site](https://flex.apache.org)
-* [Using Flex](https://help.adobe.com/archive/en_US/flex/using/flex_4.6_help.pdf)
-* [Flex tricks](https://gist.github.com/hydroper/8b70e8877b1bb7360528d6c5eae50d08)
-* [Agera for AIR: utilities](https://hydroper.gitbook.io/agera-air/)
+[![](https://img.shields.io/badge/AIR-gray)](https://airsdk.dev)
+[![](https://img.shields.io/badge/Flex-gray)](https://flex.apache.org)
+[![](https://img.shields.io/badge/Using%20Flex-gray)](https://help.adobe.com/archive/en_US/flex/using/flex_4.6_help.pdf)
+[![](https://img.shields.io/badge/Flex%20Tricks-gray)](https://gist.github.com/hydroper/8b70e8877b1bb7360528d6c5eae50d08)
+[![](https://img.shields.io/badge/Agera-gray)](https://hydroper.gitbook.io/agera-air)
 
 ## Server side
 
