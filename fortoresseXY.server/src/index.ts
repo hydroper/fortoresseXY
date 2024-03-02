@@ -1,5 +1,7 @@
 import WebSocket, { RawData, WebSocketServer } from "ws";
 import { OptionValues, program } from "commander";
+import { Engine } from "matter-js";
+import { Human } from "./lib/Human";
 
 const frameRate: number = 60;
 
@@ -7,6 +9,9 @@ class FortoresseXYServer {
     private stopSchedule: Date | null = null;
     private wss: WebSocketServer | null = null;
     private readonly peers: Map<WebSocket, Peer> = new Map<WebSocket, Peer>;
+    private readonly engine: Engine = Engine.create({
+        gravity: { x: 0, y: 10, scale: 1 },
+    });
 
     public constructor() {
         // Parse command line
@@ -90,6 +95,7 @@ class FortoresseXYServer {
 
 class Peer {
     public readonly ws: WebSocket;
+    public human: Human | null = null;
 
     public constructor(ws: WebSocket) {
         this.ws = ws;

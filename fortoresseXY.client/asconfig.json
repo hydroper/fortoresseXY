@@ -12,8 +12,8 @@
         "library-path": ["libs"],
         "output": "build/app.swf",
         "default-size": {
-            "width": 1024,
-            "height": 720
+            "width": 800,
+            "height": 600
         }
     }
 }
