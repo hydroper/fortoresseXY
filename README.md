@@ -4,6 +4,10 @@ A multiplayer game beginning development. It will take the form of the Atelier 8
 
 It is preceded by the failed attempt of another multiplayer game.
 
+## Discussions
+
+Use the [discussion forum](https://github.com/hydroper/fortoresseXY/discussions) available in this repository to discuss and share ideas.
+
 ## Client side
 
 The client side is currently empty, but will use:
