@@ -1,8 +1,8 @@
 import WebSocket, { RawData, WebSocketServer } from "ws";
 import { OptionValues, program } from "commander";
 import { Engine } from "matter-js";
-import { Human } from "./lib/Human";
-import { WorldEntityPacket, WorldPacket } from "./lib/WorldPacket";
+import { Peer } from "fortoresseXY/Peer";
+import { WorldEntityPacket, WorldPacket } from "fortoresseXY/packets/WorldPacket";
 
 const frameRate: number = 60;
 
@@ -139,16 +139,6 @@ class FortoresseXYServer {
             type: "world",
             entities,
         };
-    }
-}
-
-class Peer {
-    public readonly ws: WebSocket;
-    public playerId: string = "";
-    public human: Human | null = null;
-
-    public constructor(ws: WebSocket) {
-        this.ws = ws;
     }
 }
 

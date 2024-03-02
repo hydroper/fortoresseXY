@@ -1,4 +1,4 @@
-import { HumanPoseType } from "./Human";
+import { HumanPoseType } from "fortoresseXY/Human";
 
 export type WorldPacket = {
     type: "world",
