@@ -1,7 +1,8 @@
 import WebSocket, { RawData, WebSocketServer } from "ws";
 import { OptionValues, program } from "commander";
-import { Engine } from "matter-js";
+import { Bodies, Composite, Engine } from "matter-js";
 import { Peer } from "fortoresseXY/Peer";
+import { PressButtonPacket } from "fortoresseXY/packets/PressButtonPacket";
 import { WorldEntityPacket, WorldPacket } from "fortoresseXY/packets/WorldPacket";
 
 const frameRate: number = 60;
@@ -38,6 +39,10 @@ class FortoresseXYServer {
         });
         this.wss.on("connection", this.handleConnection.bind(this));
 
+        // Test ground
+        const ground = Bodies.rectangle(0, 300, 800, 600);
+        Composite.add(this.engine.world, [ground]);
+
         // Auto close if no immediate connection occurs
         setTimeout((): void => {
             this.autoClose();
@@ -61,12 +66,24 @@ class FortoresseXYServer {
             this.autoClose();
         });
 
+        ws.on("open", (): void => {
+            // Test spawning
+            peer.spawn(this.engine);
+        });
+
         // Handle message
-        ws.on("message", (dataBuffer: RawData, isBinary: boolean) => {
+        ws.on("message", (dataBuffer: RawData, isBinary: boolean): void => {
             if (dataBuffer instanceof Buffer && !isBinary) {
                 const data = JSON.parse(dataBuffer.toString("utf8"));
+                this.handleMessageJSON(peer, data);
             }
         });
+    }
+
+    private handleMessageJSON(peer: Peer, data: any): void {
+        if (data.type == "pressButton") {
+            peer.handlePressButtonPacket(data as PressButtonPacket);
+        }
     }
 
     private autoClose(): void {

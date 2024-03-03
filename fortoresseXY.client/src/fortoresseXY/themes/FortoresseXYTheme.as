@@ -14,7 +14,6 @@ package fortoresseXY.themes {
         }
 
         private function createBackgroundGradientFill1(): FillStyle {
-            const matrix: Matrix = new Matrix();
             return GradientFillStyle(GradientType.LINEAR, [0x577A87, 0x585858], [1.0, 1.0], [10, 200], CreateGradientBoxMatrix.fromDegrees(90));
         }
 
