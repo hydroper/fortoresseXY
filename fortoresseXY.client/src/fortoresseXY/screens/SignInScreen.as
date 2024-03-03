@@ -58,7 +58,7 @@ package fortoresseXY.screens {
         private function splashScreen2(): void {
             this.panel.removeChildren();
             const logo: Bitmap = new FortoresseXYImages.hydroperLogo() as Bitmap;
-            logo.scaleX = logo.scaleY = 0.40;
+            logo.scaleX = logo.scaleY = 0.30;
             this.panel.addChild(logo);
 
             setTimeout(function(): void {
@@ -70,19 +70,21 @@ package fortoresseXY.screens {
             this.panel.removeChildren();
 
             var hl: HorizontalLayout,
-                vl: VerticalLayout;
+                vl: VerticalLayout,
+                btn: Button;
 
             const group1: LayoutGroup = new LayoutGroup();
             hl = new HorizontalLayout();
             hl.setPadding(25);
             hl.horizontalAlign = HorizontalAlign.CENTER;
+            hl.verticalAlign = VerticalAlign.MIDDLE;
             hl.gap = 38;
             group1.layout = hl;
             this.panel.addChild(group1);
 
             // Logo
             const logo: Bitmap = new FortoresseXYImages.logo() as Bitmap;
-            logo.scaleX = logo.scaleY = 0.48;
+            logo.scaleX = logo.scaleY = 0.40;
             group1.addChild(logo);
 
             // Form
@@ -123,18 +125,26 @@ package fortoresseXY.screens {
             passwordItem.content = passwordInput;
 
             // Sig in button
-            const sigInButton: Button = new Button();
-            sigInButton.variant = Button.VARIANT_PRIMARY;
-            sigInButton.text = "SIG IN";
-            sigInButton.addEventListener(TriggerEvent.TRIGGER, function(event: TriggerEvent): void {
+            btn = new Button();
+            btn.variant = Button.VARIANT_PRIMARY;
+            btn.text = "SIG IN";
+            btn.minWidth = form.minWidth;
+            btn.addEventListener(TriggerEvent.TRIGGER, function(event: TriggerEvent): void {
                 form.submit();
             });
-            form.addChild(sigInButton);
+            form.addChild(btn);
 
             // Forgot password button
-            const forgotPasswordButton: Button = new Button();
-            forgotPasswordButton.text = "FORGOT PASSWORD";
-            form.addChild(forgotPasswordButton);
+            btn = new Button();
+            btn.text = "FORGOT PASSWORD";
+            btn.minWidth = form.minWidth;
+            form.addChild(btn);
+
+            // Sign up button
+            btn = new Button();
+            btn.text = "SIGN UP";
+            btn.minWidth = form.minWidth;
+            form.addChild(btn);
         }
     }
 }
