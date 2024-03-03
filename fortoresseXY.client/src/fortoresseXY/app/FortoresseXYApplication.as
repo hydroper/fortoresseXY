@@ -8,8 +8,8 @@ package fortoresseXY.app {
     import fortoresseXY.screens.*;
 
     public class FortoresseXYApplication extends Application {
-        public static const appWidth: Number = 800;
-        public static const appHeight: Number = 600;
+        public static const appWidth: Number = 1024;
+        public static const appHeight: Number = 620;
 
         public function FortoresseXYApplication() {
             const theme: IDarkModeTheme = new FortoresseXYTheme();

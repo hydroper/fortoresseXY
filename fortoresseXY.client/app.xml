@@ -7,7 +7,7 @@
         <title>Fortoresse XY</title>
         <content>build/app.swf</content> 
         <visible>true</visible> 
-        <width>800</width> 
-        <height>600</height> 
+        <width>1024</width> 
+        <height>620</height> 
     </initialWindow> 
 </application>

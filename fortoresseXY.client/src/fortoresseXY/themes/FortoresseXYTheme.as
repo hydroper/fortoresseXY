@@ -10,8 +10,11 @@ package fortoresseXY.themes {
     public class FortoresseXYTheme extends SteelTheme {
         public function FortoresseXYTheme() {
             super();
+            this.fontSize = 24;
+            this.headerFontSize = 34;
 
             this.styleProvider.setStyleFunction(Panel, null, setPanelStyles);
+            // this.styleProvider.setStyleFunction(Button, null, setButtonStyles);
         }
 
         private function createBackgroundGradientFill1(): FillStyle {
@@ -23,6 +26,9 @@ package fortoresseXY.themes {
             backgroundSkin.border = null;
             backgroundSkin.fill = this.createBackgroundGradientFill1();
             panel.backgroundSkin = backgroundSkin;
+        }
+
+        private function setButtonStyles(button: Button): void {
         }
     }
 }

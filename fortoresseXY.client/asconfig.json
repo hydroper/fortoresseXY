@@ -13,8 +13,8 @@
         "output": "build/app.swf",
         "default-background-color": "#000000",
         "default-size": {
-            "width": 800,
-            "height": 600
+            "width": 1024,
+            "height": 620
         }
     }
 }
