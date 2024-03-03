@@ -3,6 +3,7 @@ package fortoresseXY.themes {
     import feathers.controls.*;
     import feathers.skins.*;
     import feathers.graphics.*;
+    import feathers.text.*;
     import flash.display.*;
     import flash.geom.Matrix;
 

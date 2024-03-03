@@ -76,7 +76,7 @@ export class Human {
 
     public get flyingOrFalling(): boolean {
         const v = Body.getVelocity(this.body);
-        return v.y < -1 || v.y > 1;
+        return v.y < -0.25 || v.y > 0.25;
     }
     
     public jump(): void {

@@ -5,9 +5,10 @@ package fortoresseXY.screens {
     import feathers.layout.*;
     import feathers.motion.effects.*;
     import feathers.motion.transitions.*;
+    import feathers.text.*;
+    import motion.easing.Linear;
     import fortoresseXY.images.*;
     import fortoresseXY.app.*;
-    import motion.easing.Expo;
 
     public class SignInScreen extends Sprite {
         private var panel: Panel;
@@ -29,14 +30,20 @@ package fortoresseXY.screens {
         }
 
         private function splashScreen1(): void {
-            const logo: Bitmap = new FortoresseXYImages.logo() as Bitmap;
-            logo.alpha = 0;
-            logo.scaleX = logo.scaleY = 0.25;
+            this.panel.removeChildren();
+            const logo: Bitmap = new FortoresseXYImages.atelier801Logo() as Bitmap;
+            logo.scaleX = logo.scaleY = 0.5;
             this.panel.addChild(logo);
-            (new FadeTransitionBuilder().setFadeIn(true).setDuration(1.5).setEase(Expo.easeOut).build()(logo, logo) as IEffectContext)
+            const disclaimer: Label = new Label();
+            disclaimer.text = "INCLUDES ATELIER 801 PROPERTIES";
+            disclaimer.variant = Label.VARIANT_HEADING;
+            this.panel.addChild(disclaimer);
+            /*
+            (new FadeTransitionBuilder().setFadeIn(true).setDuration(1.5).setEase(Linear.get_easeNone()).build()(logo, logo) as IEffectContext)
                 .addEventListener(Event.COMPLETE, function(event: Event): void {
                     trace("...");
                 });
+            */
         }
     }
 }
