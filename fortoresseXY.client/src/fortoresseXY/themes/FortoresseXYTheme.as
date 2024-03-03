@@ -23,10 +23,14 @@ package fortoresseXY.themes {
             this.headerFontSize = 34;
 
             this.styleProvider.setStyleFunction(Panel, null, setPanelStyles);
+
             this.styleProvider.setStyleFunction(Button, Button.VARIANT_PRIMARY, setPrimaryButtonStyles);
             this.styleProvider.setStyleFunction(Button, null, setSecondaryButtonStyles);
             this.styleProvider.setStyleFunction(Button, Button.VARIANT_DANGER, setDangerButtonStyles);
+
             this.styleProvider.setStyleFunction(Label, Label.VARIANT_HEADING, setHeadingLabelStyles);
+
+            this.styleProvider.setStyleFunction(TextInput, null, setTextInputStyles);
         }
 
         override public function getTextFormat(align: String = null): TextFormat {
@@ -147,6 +151,22 @@ package fortoresseXY.themes {
         private function setHeadingLabelStyles(label: Label): void {
             label.textFormat = this.getHeadingTextFormat();
             label.textField.embedFonts = true;
+        }
+
+        private function setTextInputStyles(input: TextInput): void {
+            // Default
+            input.paddingLeft = input.paddingRight = 20, input.paddingTop = input.paddingBottom = 8;
+            input.textFormat = this.getTextFormat();
+            input.textFormat.color = FortoresseXYTheme_foreground;
+            var backgroundSkin: RectangleSkin = new RectangleSkin();
+            backgroundSkin.border = SolidColorLineStyle(4, FortoresseXYTheme_foreground);
+            backgroundSkin.fill = SolidColorFillStyle(0x000000, 0);
+            backgroundSkin.cornerRadius = 0;
+            input.backgroundSkin = backgroundSkin;
+
+            // Disabled
+            backgroundSkin.setBorderForState(TextInputState.DISABLED, SolidColorLineStyle(4, FortoresseXYTheme_foreground, 0.5));
+            input.disabledAlpha = 0.5;
         }
     }
 }

@@ -134,15 +134,15 @@ package fortoresseXY.screens {
             });
             form.addChild(btn);
 
-            // Forgot password button
-            btn = new Button();
-            btn.text = "FORGOT PASSWORD";
-            btn.minWidth = form.minWidth;
-            form.addChild(btn);
-
             // Sign up button
             btn = new Button();
             btn.text = "SIGN UP";
+            btn.minWidth = form.minWidth;
+            form.addChild(btn);
+
+            // Forgot password button
+            btn = new Button();
+            btn.text = "FORGOT PASSWORD";
             btn.minWidth = form.minWidth;
             form.addChild(btn);
         }
