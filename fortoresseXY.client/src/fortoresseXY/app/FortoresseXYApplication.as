@@ -1,4 +1,5 @@
 package fortoresseXY.app {
+    import flash.display.*;
     import flash.events.*;
     import feathers.core.*;
     import feathers.controls.*;
@@ -16,6 +17,7 @@ package fortoresseXY.app {
             theme.darkMode = true;
             Theme.setTheme(theme);
             super();
+            this.stage.quality = StageQuality.HIGH;
             this.scaleManager = new LetterboxScaleManager(appWidth, appHeight);
             new AgeraApplication();
             this.addEventListener(Event.ADDED_TO_STAGE, this.FortoresseXYApplication_initialize);

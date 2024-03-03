@@ -58,7 +58,7 @@ package fortoresseXY.screens {
         private function splashScreen2(): void {
             this.panel.removeChildren();
             const logo: Bitmap = new FortoresseXYImages.hydroperLogo() as Bitmap;
-            logo.scaleX = logo.scaleY = 0.5;
+            logo.scaleX = logo.scaleY = 0.40;
             this.panel.addChild(logo);
 
             setTimeout(function(): void {
@@ -69,12 +69,15 @@ package fortoresseXY.screens {
         private function signInScreen(): void {
             this.panel.removeChildren();
 
+            var hl: HorizontalLayout,
+                vl: VerticalLayout;
+
             const group1: LayoutGroup = new LayoutGroup();
-            const group1Layout: HorizontalLayout = new HorizontalLayout();
-            group1Layout.setPadding(25);
-            group1Layout.horizontalAlign = HorizontalAlign.CENTER;
-            group1Layout.gap = 38;
-            group1.layout = group1Layout;
+            hl = new HorizontalLayout();
+            hl.setPadding(25);
+            hl.horizontalAlign = HorizontalAlign.CENTER;
+            hl.gap = 38;
+            group1.layout = hl;
             this.panel.addChild(group1);
 
             // Logo
@@ -82,15 +85,21 @@ package fortoresseXY.screens {
             logo.scaleX = logo.scaleY = 0.48;
             group1.addChild(logo);
 
+            // Form
             const form: Form = new Form();
             form.minWidth = 300;
+            vl = new VerticalLayout();
+            vl.gap = 20;
+            form.layout = vl;
             group1.addChild(form);
 
+            // Heading label
             const headingLabel: Label = new Label();
             headingLabel.text = "SIG IN";
             headingLabel.variant = Label.VARIANT_HEADING;
             form.addChild(headingLabel);
 
+            // Username item
             const usernameItem: FormItem = new FormItem();
             usernameItem.text = "USERNAME";
             usernameItem.required = true;
@@ -101,6 +110,7 @@ package fortoresseXY.screens {
             usernameInput.minWidth = form.minWidth;
             usernameItem.content = usernameInput;
 
+            // Password item
             const passwordItem: FormItem = new FormItem();
             passwordItem.text = "PASSWORD";
             passwordItem.required = true;
@@ -112,6 +122,7 @@ package fortoresseXY.screens {
             passwordInput.displayAsPassword = true;
             passwordItem.content = passwordInput;
 
+            // Sig in button
             const sigInButton: Button = new Button();
             sigInButton.variant = Button.VARIANT_PRIMARY;
             sigInButton.text = "SIG IN";
@@ -119,6 +130,11 @@ package fortoresseXY.screens {
                 form.submit();
             });
             form.addChild(sigInButton);
+
+            // Forgot password button
+            const forgotPasswordButton: Button = new Button();
+            forgotPasswordButton.text = "FORGOT PASSWORD";
+            form.addChild(forgotPasswordButton);
         }
     }
 }
