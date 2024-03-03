@@ -35,7 +35,7 @@ package fortoresseXY.screens {
         private function splashScreen1(): void {
             this.panel.removeChildren();
             const logo: Bitmap = new FortoresseXYImages.atelier801Logo() as Bitmap;
-            logo.scaleX = logo.scaleY = 0.5;
+            logo.scaleX = logo.scaleY = 0.7;
             this.panel.addChild(logo);
             const disclaimer: Label = new Label();
             disclaimer.text = "INCLUDES ATELIER 801 PROPERTIES";
@@ -58,7 +58,7 @@ package fortoresseXY.screens {
         private function splashScreen2(): void {
             this.panel.removeChildren();
             const logo: Bitmap = new FortoresseXYImages.hydroperLogo() as Bitmap;
-            logo.scaleX = logo.scaleY = 0.25;
+            logo.scaleX = logo.scaleY = 0.5;
             this.panel.addChild(logo);
 
             setTimeout(function(): void {
