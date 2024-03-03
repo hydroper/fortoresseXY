@@ -7,7 +7,7 @@ package fortoresseXY.fonts {
             fontName = "Noto Sans",
             fontWeight = "normal",
             fontStyle = "normal",
-            mimeType = "application/x-font",
+            mimeType = "application/x-font-truetype",
             advancedAntiAliasing = "true",
             embedAsCFF = "false"
         )]
@@ -18,7 +18,7 @@ package fortoresseXY.fonts {
             fontName = "Noto Sans",
             fontWeight = "normal",
             fontStyle = "italic",
-            mimeType = "application/x-font",
+            mimeType = "application/x-font-truetype",
             advancedAntiAliasing = "true",
             embedAsCFF = "false"
         )]
@@ -29,7 +29,7 @@ package fortoresseXY.fonts {
             fontName = "Noto Sans",
             fontWeight = "bold",
             fontStyle = "normal",
-            mimeType = "application/x-font",
+            mimeType = "application/x-font-truetype",
             advancedAntiAliasing = "true",
             embedAsCFF = "false"
         )]
@@ -40,7 +40,7 @@ package fortoresseXY.fonts {
             fontName = "Noto Sans",
             fontWeight = "bold",
             fontStyle = "italic",
-            mimeType = "application/x-font",
+            mimeType = "application/x-font-truetype",
             advancedAntiAliasing = "true",
             embedAsCFF = "false"
         )]
@@ -48,10 +48,10 @@ package fortoresseXY.fonts {
 
         [Embed(
             source = "./notoSans/NotoSans-ExtraLight.ttf",
-            fontName = "Noto Sans ExtraLight",
-            fontWeight = "0",
+            fontName = "XNoto Sans ExtraLight",
+            fontWeight = "100",
             fontStyle = "normal",
-            mimeType = "application/x-font",
+            mimeType = "application/x-font-truetype",
             advancedAntiAliasing = "true",
             embedAsCFF = "false"
         )]
@@ -60,9 +60,9 @@ package fortoresseXY.fonts {
         [Embed(
             source = "./notoSans/NotoSans-ExtraLightItalic.ttf",
             fontName = "Noto Sans ExtraLight",
-            fontWeight = "0",
+            fontWeight = "100",
             fontStyle = "italic",
-            mimeType = "application/x-font",
+            mimeType = "application/x-font-truetype",
             advancedAntiAliasing = "true",
             embedAsCFF = "false"
         )]

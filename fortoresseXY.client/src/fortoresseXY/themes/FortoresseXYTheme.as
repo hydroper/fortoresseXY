@@ -37,7 +37,7 @@ package fortoresseXY.themes {
 
         private function getHeadingTextFormat(align: String = null): TextFormat {
             const tf: TextFormat = this.getTextFormat(align);
-            tf.font = "Noto Sans ExtraLight";
+            tf.font = "XNoto Sans ExtraLight";
             tf.size = this.headerFontSize;
             return tf;
         }
@@ -146,6 +146,7 @@ package fortoresseXY.themes {
 
         private function setHeadingLabelStyles(label: Label): void {
             label.textFormat = this.getHeadingTextFormat();
+            label.textField.embedFonts = true;
         }
     }
 }
