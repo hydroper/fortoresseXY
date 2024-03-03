@@ -84,7 +84,7 @@ package fortoresseXY.screens {
 
             // Logo
             const logo: Bitmap = new FortoresseXYImages.logo() as Bitmap;
-            logo.scaleX = logo.scaleY = 0.40;
+            logo.scaleX = logo.scaleY = 0.5;
             group1.addChild(logo);
 
             // Form

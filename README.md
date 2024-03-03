@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="./assets/logo.png" width="418">
+  <img src="./assets/banner.png">
 </p>
 
 Fortoresse XY is a free world, 2D shooter multiplayer game in early development.
@@ -26,7 +26,6 @@ Use the [discussion forum](https://github.com/hydroper/fortoresseXY/discussions)
 The client side is currently empty, but will use:
 
 * [Samsung HARMAN AIR](https://airsdk.dev)
-  * The AIR SDK overlay is overlaid into the Apache Flex SDK.
   * AIR supports native WebSocket as of 2024. [Download AIR SDK 51.0.](https://airsdk.harman.com/download/51.0.0.2)
 * [Feathers UI](https://feathersui.com) — OpenFL SWC for ActionScript 3
 
@@ -41,6 +40,7 @@ Expected tools:
 Client side reconsiderations:
 
 * No use of Apache Flex or Apache Royale, given that both are not priorized over the Feathers UI project by Josh Tynjala. The reason is that Josh builds a SWC for every Feathers UI release, which is compatible with AIR applications written in ActionScript 3.
+* If the project were to use Apache Flex, then the AIR SDK overlay would be overlaid into the Apache Flex SDK.
 
 [![](https://img.shields.io/badge/Flex-gray)](https://flex.apache.org)
 [![](https://img.shields.io/badge/Using%20Flex-gray)](https://help.adobe.com/archive/en_US/flex/using/flex_4.6_help.pdf)
