@@ -1,3 +1,0 @@
-# fortoresse-xy-server
-
-Server

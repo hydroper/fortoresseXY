@@ -23,7 +23,7 @@ Use the [discussion forum](https://github.com/hydroper/fortoresseXY/discussions)
 
 ## Client side
 
-The client side is currently empty, but will use:
+The client side is currently beginning and uses:
 
 * [Samsung HARMAN AIR](https://airsdk.dev)
   * AIR supports native WebSocket as of 2024. [Download AIR SDK 51.0.](https://airsdk.harman.com/download/51.0.0.2)
@@ -47,11 +47,53 @@ Client side reconsiderations:
 [![](https://img.shields.io/badge/Using%20Flex-gray)](https://help.adobe.com/archive/en_US/flex/using/flex_4.6_help.pdf)
 [![](https://img.shields.io/badge/Flex%20Tricks-gray)](https://gist.github.com/hydroper/8b70e8877b1bb7360528d6c5eae50d08)
 
+Requirements:
+
+* AIR SDK
+* Node.js
+* Install `asconfigc` through the command `npm i -g asconfigc`
+
+Debug the client through the following commands:
+
+* Windows: Command Prompt
+
+```batch
+run\debug-client
+```
+
+* Unix Shell
+
+```bash
+run/debug-client.sh
+```
+
+## Database
+
+*Database*: undecided.
+
 ## Server side
 
-The server side uses Node.js and is still beginning.
+Run the server through the following commands:
+
+* Windows: Command Prompt
+
+```batch
+run\run-server
+```
+
+* Unix Shell
+
+```bash
+run/run-server.sh
+```
+
+### Socket server side
+
+The socket server side uses Node.js and is still beginning.
 
 [![](https://img.shields.io/badge/Matter%20Physics-gray)](https://brm.io/matter-js)
 [![](https://img.shields.io/badge/WebSocket-gray)](https://www.npmjs.com/package/ws)
 
-*Database*: undecided.
+### HTTP server side
+
+The HTTP server side uses Node.js and is currently empty.
