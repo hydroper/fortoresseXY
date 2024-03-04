@@ -41,7 +41,7 @@ package fortoresseXY.themes {
 
         private function getHeadingTextFormat(align: String = null): TextFormat {
             const tf: TextFormat = this.getTextFormat(align);
-            tf.font = "XNoto Sans ExtraLight";
+            tf.font = "Noto Sans ExtraLight";
             tf.size = this.headerFontSize;
             return tf;
         }
@@ -63,28 +63,28 @@ package fortoresseXY.themes {
             button.textFormat = this.getTextFormat();
             button.textFormat.color = FortoresseXYTheme_background;
             var backgroundSkin: RectangleSkin = new RectangleSkin();
-            backgroundSkin.border = LineStyle.SolidColor(4, FortoresseXYTheme_foreground);
+            backgroundSkin.border = LineStyle.SolidColor(2, FortoresseXYTheme_foreground);
             backgroundSkin.fill = FillStyle.SolidColor(FortoresseXYTheme_foreground);
             backgroundSkin.cornerRadius = 50;
             button.backgroundSkin = backgroundSkin;
 
             // Disabled
-            backgroundSkin.setBorderForState(ButtonState.DISABLED, LineStyle.SolidColor(4, FortoresseXYTheme_foreground, 0.2));
+            backgroundSkin.setBorderForState(ButtonState.DISABLED, LineStyle.SolidColor(2, FortoresseXYTheme_foreground, 0.2));
             backgroundSkin.setFillForState(ButtonState.DISABLED, FillStyle.SolidColor(FortoresseXYTheme_foreground, 0.5));
 
             // Hover
-            backgroundSkin.setBorderForState(ButtonState.HOVER, LineStyle.SolidColor(4, FortoresseXYTheme_foreground, 0.4));
+            backgroundSkin.setBorderForState(ButtonState.HOVER, LineStyle.SolidColor(2, FortoresseXYTheme_foreground, 0.4));
             backgroundSkin.setFillForState(ButtonState.HOVER, FillStyle.SolidColor(FortoresseXYTheme_foreground, 0.7));
 
             // Down
-            backgroundSkin.setBorderForState(ButtonState.DOWN, LineStyle.SolidColor(4, FortoresseXYTheme_foreground, 0.4));
+            backgroundSkin.setBorderForState(ButtonState.DOWN, LineStyle.SolidColor(2, FortoresseXYTheme_foreground, 0.4));
             backgroundSkin.setFillForState(ButtonState.DOWN, FillStyle.SolidColor(FortoresseXYTheme_foreground, 0.7));
 
             // Focus
             button.setFocusPadding(5);
             var focusRectSkin: RectangleSkin = new RectangleSkin();
             focusRectSkin.cornerRadius = 5;
-            focusRectSkin.border = LineStyle.SolidColor(4, FortoresseXYTheme_focus);
+            focusRectSkin.border = LineStyle.SolidColor(2, FortoresseXYTheme_focus);
             button.focusRectSkin = focusRectSkin;
         }
 
@@ -94,13 +94,13 @@ package fortoresseXY.themes {
             button.textFormat = this.getTextFormat();
             button.textFormat.color = FortoresseXYTheme_foreground;
             var backgroundSkin: RectangleSkin = new RectangleSkin();
-            backgroundSkin.border = LineStyle.SolidColor(4, FortoresseXYTheme_foreground);
+            backgroundSkin.border = LineStyle.SolidColor(2, FortoresseXYTheme_foreground);
             backgroundSkin.fill = FillStyle.SolidColor(0x000000, 0);
             backgroundSkin.cornerRadius = 50;
             button.backgroundSkin = backgroundSkin;
 
             // Disabled
-            backgroundSkin.setBorderForState(ButtonState.DISABLED, LineStyle.SolidColor(4, FortoresseXYTheme_foreground, 0.5));
+            backgroundSkin.setBorderForState(ButtonState.DISABLED, LineStyle.SolidColor(2, FortoresseXYTheme_foreground, 0.5));
             button.disabledAlpha = 0.5;
 
             // Hover
@@ -113,7 +113,7 @@ package fortoresseXY.themes {
             button.setFocusPadding(5);
             var focusRectSkin: RectangleSkin = new RectangleSkin();
             focusRectSkin.cornerRadius = 5;
-            focusRectSkin.border = LineStyle.SolidColor(4, FortoresseXYTheme_focus);
+            focusRectSkin.border = LineStyle.SolidColor(2, FortoresseXYTheme_focus);
             button.focusRectSkin = focusRectSkin;
         }
 
@@ -123,34 +123,34 @@ package fortoresseXY.themes {
             button.textFormat = this.getTextFormat();
             button.textFormat.color = FortoresseXYTheme_background;
             var backgroundSkin: RectangleSkin = new RectangleSkin();
-            backgroundSkin.border = LineStyle.SolidColor(4, FortoresseXYTheme_danger);
+            backgroundSkin.border = LineStyle.SolidColor(2, FortoresseXYTheme_danger);
             backgroundSkin.fill = FillStyle.SolidColor(FortoresseXYTheme_danger);
             backgroundSkin.cornerRadius = 50;
             button.backgroundSkin = backgroundSkin;
 
             // Disabled
-            backgroundSkin.setBorderForState(ButtonState.DISABLED, LineStyle.SolidColor(4, FortoresseXYTheme_danger, 0.4));
+            backgroundSkin.setBorderForState(ButtonState.DISABLED, LineStyle.SolidColor(2, FortoresseXYTheme_danger, 0.4));
             backgroundSkin.setFillForState(ButtonState.DISABLED, FillStyle.SolidColor(FortoresseXYTheme_danger, 0.5));
 
             // Hover
-            backgroundSkin.setBorderForState(ButtonState.HOVER, LineStyle.SolidColor(4, FortoresseXYTheme_danger, 0.4));
+            backgroundSkin.setBorderForState(ButtonState.HOVER, LineStyle.SolidColor(2, FortoresseXYTheme_danger, 0.4));
             backgroundSkin.setFillForState(ButtonState.HOVER, FillStyle.SolidColor(FortoresseXYTheme_danger, 0.7));
 
             // Down
-            backgroundSkin.setBorderForState(ButtonState.DOWN, LineStyle.SolidColor(4, FortoresseXYTheme_danger, 0.4));
+            backgroundSkin.setBorderForState(ButtonState.DOWN, LineStyle.SolidColor(2, FortoresseXYTheme_danger, 0.4));
             backgroundSkin.setFillForState(ButtonState.DOWN, FillStyle.SolidColor(FortoresseXYTheme_danger, 0.7));
 
             // Focus
             button.setFocusPadding(5);
             var focusRectSkin: RectangleSkin = new RectangleSkin();
             focusRectSkin.cornerRadius = 5;
-            focusRectSkin.border = LineStyle.SolidColor(4, FortoresseXYTheme_focus);
+            focusRectSkin.border = LineStyle.SolidColor(2, FortoresseXYTheme_focus);
             button.focusRectSkin = focusRectSkin;
         }
 
         private function setHeadingLabelStyles(label: Label): void {
+            label.embedFonts = true;
             label.textFormat = this.getHeadingTextFormat();
-            label.textField.embedFonts = true;
         }
 
         private function setTextInputStyles(input: TextInput): void {
@@ -159,13 +159,13 @@ package fortoresseXY.themes {
             input.textFormat = this.getTextFormat();
             input.textFormat.color = FortoresseXYTheme_foreground;
             var backgroundSkin: RectangleSkin = new RectangleSkin();
-            backgroundSkin.border = LineStyle.SolidColor(4, FortoresseXYTheme_foreground);
+            backgroundSkin.border = LineStyle.SolidColor(2, FortoresseXYTheme_foreground);
             backgroundSkin.fill = FillStyle.SolidColor(0x000000, 0);
             backgroundSkin.cornerRadius = 0;
             input.backgroundSkin = backgroundSkin;
 
             // Disabled
-            backgroundSkin.setBorderForState(TextInputState.DISABLED, LineStyle.SolidColor(4, FortoresseXYTheme_foreground, 0.5));
+            backgroundSkin.setBorderForState(TextInputState.DISABLED, LineStyle.SolidColor(2, FortoresseXYTheme_foreground, 0.5));
             input.disabledAlpha = 0.5;
         }
     }

@@ -48,7 +48,7 @@ package fortoresseXY.fonts {
 
         [Embed(
             source = "./notoSans/NotoSans-ExtraLight.ttf",
-            fontName = "XNoto Sans ExtraLight",
+            fontName = "Noto Sans ExtraLight",
             fontWeight = "100",
             fontStyle = "normal",
             mimeType = "application/x-font-truetype",
