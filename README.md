@@ -64,7 +64,7 @@ run\debug-client
 * Unix Shell
 
 ```bash
-run/debug-client.sh
+./run/debug-client.sh
 ```
 
 ## Database
@@ -84,7 +84,7 @@ run\run-server
 * Unix Shell
 
 ```bash
-run/run-server.sh
+./run/run-server.sh
 ```
 
 ### Socket server side
