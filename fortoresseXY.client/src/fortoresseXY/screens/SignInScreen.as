@@ -99,6 +99,7 @@ package fortoresseXY.screens {
             // Logo
             const logo: Bitmap = new FortoresseXYImages.atelier801Logo() as Bitmap;
             logo.scaleX = logo.scaleY = 0.7;
+            logo.smoothing = true;
             lg.addChild(logo);
 
             // Disclaimer
@@ -127,6 +128,7 @@ package fortoresseXY.screens {
             // Logo
             const logo: Bitmap = new FortoresseXYImages.hydroperLogo() as Bitmap;
             logo.scaleX = logo.scaleY = 0.37;
+            logo.smoothing = true;
             this.panel.addChild(logo);
 
             // Fade in, fade out
@@ -166,6 +168,7 @@ package fortoresseXY.screens {
             // Logo
             const logo: Bitmap = new FortoresseXYImages.logo() as Bitmap;
             logo.scaleX = logo.scaleY = 0.5;
+            logo.smoothing = true;
             group1.addChild(logo);
 
             // Form
@@ -226,6 +229,10 @@ package fortoresseXY.screens {
             btn.text = "FORGOT PASSWORD";
             btn.minWidth = form.minWidth;
             form.addChild(btn);
+
+            // Fade in
+            group1.alpha = 0;
+            Actuate.tween(nextScreenActuatorDisplayList = group1, 1.5, { alpha: 1 }).ease(Linear.easeNone);
         }
     }
 }

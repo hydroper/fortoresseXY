@@ -17,7 +17,7 @@ package fortoresseXY.app {
             theme.darkMode = true;
             Theme.setTheme(theme);
             super();
-            this.stage.quality = StageQuality.HIGH;
+            this.stage.quality = StageQuality.BEST;
             this.scaleManager = new LetterboxScaleManager(appWidth, appHeight);
             new AgeraApplication();
             this.addEventListener(Event.ADDED_TO_STAGE, this.FortoresseXYApplication_initialize);
