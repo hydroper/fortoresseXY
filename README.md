@@ -81,11 +81,10 @@ run\debug-client
 
 ## Database
 
-Planning out:
+* Consider using MySQL at least for local debugging. Install [Apache XAMPP](https://www.apachefriends.org) for local debugging, which provides a MySQL installation in hands and phpMyAdmin for MySQL database management.
+* The database project uses the [Prisma ORM](https://www.prisma.io/docs/orm).
 
-* Consider using MySQL. Install [Apache XAMPP](https://www.apachefriends.org) for local debugging, which provides a MySQL installation in hands and phpMyAdmin for MySQL database management.
-* Nothing covered about migrations
-* Nothing covered about seeding
+[![](https://img.shields.io/badge/Prisma-gray)](https://www.prisma.io/docs/orm)
 
 ## Server side
 
