@@ -69,7 +69,11 @@ run\debug-client
 
 ## Database
 
-*Database*: undecided.
+Planning out:
+
+* Consider using MySQL. Install [Apache XAMPP](https://www.apachefriends.org) for local debugging, which provides a MySQL installation in hands.
+* Nothing covered about migrations
+* Nothing covered about seeding
 
 ## Server side
 
