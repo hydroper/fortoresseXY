@@ -4,13 +4,12 @@ package fortoresseXY.screens {
     import feathers.controls.*;
     import feathers.events.*;
     import feathers.layout.*;
-    import feathers.motion.effects.*;
-    import feathers.motion.transitions.*;
     import feathers.text.*;
-    import motion.easing.Linear;
     import fortoresseXY.images.*;
     import fortoresseXY.app.*;
     import flash.utils.setTimeout;
+    import com.eclecticdesignstudio.motion.Actuate;
+    import com.eclecticdesignstudio.motion.easing.Linear;
 
     public class SignInScreen extends Sprite {
         private var panel: Panel;
@@ -34,36 +33,57 @@ package fortoresseXY.screens {
 
         private function splashScreen1(): void {
             this.panel.removeChildren();
+
+            var vl: VerticalLayout;
+
+            // Layout group
+            var lg: LayoutGroup = new LayoutGroup();
+            vl = new VerticalLayout();
+            vl.horizontalAlign = HorizontalAlign.CENTER;
+            lg.layout = vl;
+            this.panel.addChild(lg);
+
+            // Logo
             const logo: Bitmap = new FortoresseXYImages.atelier801Logo() as Bitmap;
             logo.scaleX = logo.scaleY = 0.7;
-            this.panel.addChild(logo);
+            lg.addChild(logo);
+
+            // Disclaimer
             const disclaimer: Label = new Label();
             disclaimer.text = "INCLUDES ATELIER 801 PROPERTIES";
             disclaimer.variant = Label.VARIANT_HEADING;
-            this.panel.addChild(disclaimer);
+            lg.addChild(disclaimer);
 
-            setTimeout(function(): void {
-                splashScreen2();
-            }, 2500);
-
-            /*
-            logo.alpha = 0;
-            (new FadeTransitionBuilder().setFadeIn(true).setDuration(2.5).setEase(Linear.get_easeNone()).build()(logo, logo) as IEffectContext)
-                .addEventListener(Event.COMPLETE, function(event: Event): void {
-                    trace("...");
+            // Fade in, fade out
+            lg.alpha = 0;
+            Actuate.tween(lg, 1.5, { alpha: 1 }).ease(Linear.easeNone)
+                .onComplete(function(): void {
+                    setTimeout(function(): void {
+                        Actuate.tween(lg, 1.5, { alpha: 0 }).ease(Linear.easeNone)
+                            .onComplete(function(): void {
+                                splashScreen2();
+                            });
+                    }, 2500);
                 });
-            */
         }
 
         private function splashScreen2(): void {
             this.panel.removeChildren();
             const logo: Bitmap = new FortoresseXYImages.hydroperLogo() as Bitmap;
-            logo.scaleX = logo.scaleY = 0.30;
+            logo.scaleX = logo.scaleY = 0.37;
             this.panel.addChild(logo);
 
-            setTimeout(function(): void {
-                signInScreen();
-            }, 2500);
+            // Fade in, fade out
+            logo.alpha = 0;
+            Actuate.tween(logo, 1.5, { alpha: 1 }).ease(Linear.easeNone)
+                .onComplete(function(): void {
+                    setTimeout(function(): void {
+                        Actuate.tween(logo, 1.5, { alpha: 0 }).ease(Linear.easeNone)
+                            .onComplete(function(): void {
+                                signInScreen();
+                            });
+                    }, 2500);
+                });
         }
 
         private function signInScreen(): void {

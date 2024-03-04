@@ -36,6 +36,7 @@ Expected tools:
 [![](https://img.shields.io/badge/AIR-gray)](https://airsdk.dev)
 [![](https://img.shields.io/badge/Feathers%20UI-gray)](https://feathersui.com)
 [![](https://img.shields.io/badge/Agera-gray)](https://hydroper.gitbook.io/agera-air)
+[![](https://img.shields.io/badge/com.eclecticdesignstudio.motion-gray)](https://github.com/agera-air/com.eclecticdesignstudio.motion)
 
 Client side reconsiderations:
 

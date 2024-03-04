@@ -47,7 +47,7 @@ package fortoresseXY.themes {
         }
 
         private function createBackgroundGradientFill1(): FillStyle {
-            return GradientFillStyle(GradientType.LINEAR, [FortoresseXYTheme_backgroundTop, FortoresseXYTheme_background], [1.0, 1.0], [10, 200], CreateGradientBoxMatrix.fromDegrees(90));
+            return FillStyle.Gradient(GradientType.LINEAR, [FortoresseXYTheme_backgroundTop, FortoresseXYTheme_background], [1.0, 1.0], [10, 200], CreateGradientBoxMatrix.fromDegrees(90));
         }
 
         private function setPanelStyles(panel: Panel): void {
@@ -63,28 +63,28 @@ package fortoresseXY.themes {
             button.textFormat = this.getTextFormat();
             button.textFormat.color = FortoresseXYTheme_background;
             var backgroundSkin: RectangleSkin = new RectangleSkin();
-            backgroundSkin.border = SolidColorLineStyle(4, FortoresseXYTheme_foreground);
-            backgroundSkin.fill = SolidColorFillStyle(FortoresseXYTheme_foreground);
+            backgroundSkin.border = LineStyle.SolidColor(4, FortoresseXYTheme_foreground);
+            backgroundSkin.fill = FillStyle.SolidColor(FortoresseXYTheme_foreground);
             backgroundSkin.cornerRadius = 50;
             button.backgroundSkin = backgroundSkin;
 
             // Disabled
-            backgroundSkin.setBorderForState(ButtonState.DISABLED, SolidColorLineStyle(4, FortoresseXYTheme_foreground, 0.2));
-            backgroundSkin.setFillForState(ButtonState.DISABLED, SolidColorFillStyle(FortoresseXYTheme_foreground, 0.5));
+            backgroundSkin.setBorderForState(ButtonState.DISABLED, LineStyle.SolidColor(4, FortoresseXYTheme_foreground, 0.2));
+            backgroundSkin.setFillForState(ButtonState.DISABLED, FillStyle.SolidColor(FortoresseXYTheme_foreground, 0.5));
 
             // Hover
-            backgroundSkin.setBorderForState(ButtonState.HOVER, SolidColorLineStyle(4, FortoresseXYTheme_foreground, 0.4));
-            backgroundSkin.setFillForState(ButtonState.HOVER, SolidColorFillStyle(FortoresseXYTheme_foreground, 0.7));
+            backgroundSkin.setBorderForState(ButtonState.HOVER, LineStyle.SolidColor(4, FortoresseXYTheme_foreground, 0.4));
+            backgroundSkin.setFillForState(ButtonState.HOVER, FillStyle.SolidColor(FortoresseXYTheme_foreground, 0.7));
 
             // Down
-            backgroundSkin.setBorderForState(ButtonState.DOWN, SolidColorLineStyle(4, FortoresseXYTheme_foreground, 0.4));
-            backgroundSkin.setFillForState(ButtonState.DOWN, SolidColorFillStyle(FortoresseXYTheme_foreground, 0.7));
+            backgroundSkin.setBorderForState(ButtonState.DOWN, LineStyle.SolidColor(4, FortoresseXYTheme_foreground, 0.4));
+            backgroundSkin.setFillForState(ButtonState.DOWN, FillStyle.SolidColor(FortoresseXYTheme_foreground, 0.7));
 
             // Focus
             button.setFocusPadding(5);
             var focusRectSkin: RectangleSkin = new RectangleSkin();
             focusRectSkin.cornerRadius = 5;
-            focusRectSkin.border = SolidColorLineStyle(4, FortoresseXYTheme_focus);
+            focusRectSkin.border = LineStyle.SolidColor(4, FortoresseXYTheme_focus);
             button.focusRectSkin = focusRectSkin;
         }
 
@@ -94,26 +94,26 @@ package fortoresseXY.themes {
             button.textFormat = this.getTextFormat();
             button.textFormat.color = FortoresseXYTheme_foreground;
             var backgroundSkin: RectangleSkin = new RectangleSkin();
-            backgroundSkin.border = SolidColorLineStyle(4, FortoresseXYTheme_foreground);
-            backgroundSkin.fill = SolidColorFillStyle(0x000000, 0);
+            backgroundSkin.border = LineStyle.SolidColor(4, FortoresseXYTheme_foreground);
+            backgroundSkin.fill = FillStyle.SolidColor(0x000000, 0);
             backgroundSkin.cornerRadius = 50;
             button.backgroundSkin = backgroundSkin;
 
             // Disabled
-            backgroundSkin.setBorderForState(ButtonState.DISABLED, SolidColorLineStyle(4, FortoresseXYTheme_foreground, 0.5));
+            backgroundSkin.setBorderForState(ButtonState.DISABLED, LineStyle.SolidColor(4, FortoresseXYTheme_foreground, 0.5));
             button.disabledAlpha = 0.5;
 
             // Hover
-            backgroundSkin.setFillForState(ButtonState.HOVER, SolidColorFillStyle(FortoresseXYTheme_foreground, 0.15));
+            backgroundSkin.setFillForState(ButtonState.HOVER, FillStyle.SolidColor(FortoresseXYTheme_foreground, 0.15));
 
             // Down
-            backgroundSkin.setFillForState(ButtonState.DOWN, SolidColorFillStyle(FortoresseXYTheme_foreground, 0.15));
+            backgroundSkin.setFillForState(ButtonState.DOWN, FillStyle.SolidColor(FortoresseXYTheme_foreground, 0.15));
 
             // Focus
             button.setFocusPadding(5);
             var focusRectSkin: RectangleSkin = new RectangleSkin();
             focusRectSkin.cornerRadius = 5;
-            focusRectSkin.border = SolidColorLineStyle(4, FortoresseXYTheme_focus);
+            focusRectSkin.border = LineStyle.SolidColor(4, FortoresseXYTheme_focus);
             button.focusRectSkin = focusRectSkin;
         }
 
@@ -123,28 +123,28 @@ package fortoresseXY.themes {
             button.textFormat = this.getTextFormat();
             button.textFormat.color = FortoresseXYTheme_background;
             var backgroundSkin: RectangleSkin = new RectangleSkin();
-            backgroundSkin.border = SolidColorLineStyle(4, FortoresseXYTheme_danger);
-            backgroundSkin.fill = SolidColorFillStyle(FortoresseXYTheme_danger);
+            backgroundSkin.border = LineStyle.SolidColor(4, FortoresseXYTheme_danger);
+            backgroundSkin.fill = FillStyle.SolidColor(FortoresseXYTheme_danger);
             backgroundSkin.cornerRadius = 50;
             button.backgroundSkin = backgroundSkin;
 
             // Disabled
-            backgroundSkin.setBorderForState(ButtonState.DISABLED, SolidColorLineStyle(4, FortoresseXYTheme_danger, 0.4));
-            backgroundSkin.setFillForState(ButtonState.DISABLED, SolidColorFillStyle(FortoresseXYTheme_danger, 0.5));
+            backgroundSkin.setBorderForState(ButtonState.DISABLED, LineStyle.SolidColor(4, FortoresseXYTheme_danger, 0.4));
+            backgroundSkin.setFillForState(ButtonState.DISABLED, FillStyle.SolidColor(FortoresseXYTheme_danger, 0.5));
 
             // Hover
-            backgroundSkin.setBorderForState(ButtonState.HOVER, SolidColorLineStyle(4, FortoresseXYTheme_danger, 0.4));
-            backgroundSkin.setFillForState(ButtonState.HOVER, SolidColorFillStyle(FortoresseXYTheme_danger, 0.7));
+            backgroundSkin.setBorderForState(ButtonState.HOVER, LineStyle.SolidColor(4, FortoresseXYTheme_danger, 0.4));
+            backgroundSkin.setFillForState(ButtonState.HOVER, FillStyle.SolidColor(FortoresseXYTheme_danger, 0.7));
 
             // Down
-            backgroundSkin.setBorderForState(ButtonState.DOWN, SolidColorLineStyle(4, FortoresseXYTheme_danger, 0.4));
-            backgroundSkin.setFillForState(ButtonState.DOWN, SolidColorFillStyle(FortoresseXYTheme_danger, 0.7));
+            backgroundSkin.setBorderForState(ButtonState.DOWN, LineStyle.SolidColor(4, FortoresseXYTheme_danger, 0.4));
+            backgroundSkin.setFillForState(ButtonState.DOWN, FillStyle.SolidColor(FortoresseXYTheme_danger, 0.7));
 
             // Focus
             button.setFocusPadding(5);
             var focusRectSkin: RectangleSkin = new RectangleSkin();
             focusRectSkin.cornerRadius = 5;
-            focusRectSkin.border = SolidColorLineStyle(4, FortoresseXYTheme_focus);
+            focusRectSkin.border = LineStyle.SolidColor(4, FortoresseXYTheme_focus);
             button.focusRectSkin = focusRectSkin;
         }
 
@@ -159,13 +159,13 @@ package fortoresseXY.themes {
             input.textFormat = this.getTextFormat();
             input.textFormat.color = FortoresseXYTheme_foreground;
             var backgroundSkin: RectangleSkin = new RectangleSkin();
-            backgroundSkin.border = SolidColorLineStyle(4, FortoresseXYTheme_foreground);
-            backgroundSkin.fill = SolidColorFillStyle(0x000000, 0);
+            backgroundSkin.border = LineStyle.SolidColor(4, FortoresseXYTheme_foreground);
+            backgroundSkin.fill = FillStyle.SolidColor(0x000000, 0);
             backgroundSkin.cornerRadius = 0;
             input.backgroundSkin = backgroundSkin;
 
             // Disabled
-            backgroundSkin.setBorderForState(TextInputState.DISABLED, SolidColorLineStyle(4, FortoresseXYTheme_foreground, 0.5));
+            backgroundSkin.setBorderForState(TextInputState.DISABLED, LineStyle.SolidColor(4, FortoresseXYTheme_foreground, 0.5));
             input.disabledAlpha = 0.5;
         }
     }
