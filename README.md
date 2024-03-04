@@ -71,7 +71,7 @@ run\debug-client
 
 Planning out:
 
-* Consider using MySQL. Install [Apache XAMPP](https://www.apachefriends.org) for local debugging, which provides a MySQL installation in hands.
+* Consider using MySQL. Install [Apache XAMPP](https://www.apachefriends.org) for local debugging, which provides a MySQL installation in hands and phpMyAdmin for MySQL database management.
 * Nothing covered about migrations
 * Nothing covered about seeding
 
