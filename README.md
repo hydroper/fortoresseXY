@@ -28,7 +28,7 @@ For the client side project, do the following steps:
 * Copy the **.env-example.txt** file into a new **.env.txt** file.
 * Assign the environment variables in that .env.txt file properly.
 
-For each of the server side projects, do the following steps:
+For the database project and each of the server side projects, do the following steps:
 
 * Copy the **.env-example** file into a new **.env** file.
 * Assign the environment variables in that .env file properly.
