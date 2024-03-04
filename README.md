@@ -21,6 +21,18 @@ Planned features:
 
 Use the [discussion forum](https://github.com/hydroper/fortoresseXY/discussions) available in this repository to discuss and share ideas.
 
+## Environment variables
+
+For the client side project, do the following steps:
+
+* Copy the **.env-example.txt** file into a new **.env.txt** file.
+* Assign the environment variables in that .env.txt file properly.
+
+For each of the server side projects, do the following steps:
+
+* Copy the **.env-example** file into a new **.env** file.
+* Assign the environment variables in that .env file properly.
+
 ## Client side
 
 The client side is currently beginning and uses:

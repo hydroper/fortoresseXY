@@ -1,3 +1,4 @@
+import "dotenv/config";
 import WebSocket, { RawData, WebSocketServer } from "ws";
 import { OptionValues, program } from "commander";
 import { Bodies, Composite, Engine } from "matter-js";
