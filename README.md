@@ -28,7 +28,7 @@ For the client side project, do the following steps:
 * Copy the **.env-example.txt** file into a new **.env.txt** file.
 * Assign the environment variables in that .env.txt file properly.
 
-For the database project and each of the server side projects, do the following steps:
+For each of the server side projects, do the following steps:
 
 * Copy the **.env-example** file into a new **.env** file.
 * Assign the environment variables in that .env file properly.
@@ -50,6 +50,8 @@ Expected tools:
 [![](https://img.shields.io/badge/Agera-gray)](https://hydroper.gitbook.io/agera-air)
 [![](https://img.shields.io/badge/com.eclecticdesignstudio.motion-gray)](https://github.com/agera-air/com.eclecticdesignstudio.motion)
 
+<!--
+
 Client side reconsiderations:
 
 * No use of Apache Flex or Apache Royale, given that both are not priorized over the Feathers UI project by Josh Tynjala. The reason is that Josh builds a SWC for every Feathers UI release, which is compatible with AIR applications written in ActionScript 3.
@@ -58,6 +60,8 @@ Client side reconsiderations:
 [![](https://img.shields.io/badge/Flex-gray)](https://flex.apache.org)
 [![](https://img.shields.io/badge/Using%20Flex-gray)](https://help.adobe.com/archive/en_US/flex/using/flex_4.6_help.pdf)
 [![](https://img.shields.io/badge/Flex%20Tricks-gray)](https://gist.github.com/hydroper/8b70e8877b1bb7360528d6c5eae50d08)
+
+-->
 
 Requirements:
 
@@ -81,8 +85,12 @@ run\debug-client
 
 ## Database
 
-* Consider using MySQL at least for local debugging. Install [Apache XAMPP](https://www.apachefriends.org) for local debugging, which provides a MySQL installation in hands and phpMyAdmin for MySQL database management.
-* The database project uses the [Prisma ORM](https://www.prisma.io/docs/orm).
+The HTTP server side is responsible for communicating with the Fortoresse XY's database. It is oriented to MySQL, but may use any other data source provider.
+
+* Install [Apache XAMPP](https://www.apachefriends.org) for local debugging, which provides a MySQL installation in hands and phpMyAdmin for MySQL database management.
+* Initial XAMPP MySQL database URL: `mysql://root@localhost:3306/fortoressexy`.
+* Public MySQL database URL: `mysql://username:password@host.com:port/fortoressexy`.
+* The HTTP server side project uses the [Prisma ORM](https://www.prisma.io/docs/orm).
 
 [![](https://img.shields.io/badge/Prisma-gray)](https://www.prisma.io/docs/orm)
 
@@ -111,4 +119,4 @@ The socket server side uses Node.js and is still beginning.
 
 ### HTTP server side
 
-The HTTP server side uses Node.js and is currently empty.
+The HTTP server side uses Node.js and is still beginning.

@@ -1,0 +1,54 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+model IpUser {
+  id                          BigInt      @id @default(autoincrement())
+  lastAccountCreationAttempt  DateTime?
+  lastSignInAttempt           DateTime?
+}
+
+model User {
+  id                 BigInt                 @id @default(autoincrement())
+  username           String                 @unique
+  email              String                 @unique
+  password           String
+  authoringServers   UserAuthoringServer[]
+  accountCreation    DateTime               @default(now())
+  look               String
+}
+
+model UserServer {
+  id                  BigInt                 @id @default(autoincrement())
+  authoringUsers      UserAuthoringServer[]
+  // Identifier URL
+  url                 String                 @unique
+  isPrivate           Boolean
+  title               String
+  serverCreation      DateTime               @default(now())
+  // Descriptor JSON, consisting of a hierarchy of levels and the initial level.
+  // Each level has an associated identifier and fixed bounds.
+  descriptor          Bytes
+  // A JavaScript program that runs in an isolated V8 environment through isolated-vm.
+  // https://www.npmjs.com/package/isolated-vm
+  script              Bytes
+}
+
+model UserAuthoringServer {
+  user                User        @relation(fields: [userId], references: [id])
+  userId              BigInt
+  server              UserServer  @relation(fields: [serverId], references: [id])
+  serverId            BigInt
+  @@id([userId, serverId])
+}
