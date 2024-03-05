@@ -18,3 +18,10 @@ Validation after filling the required fields:
         1. Delete the unverified account.
     1. Else return failure response.
 4. Require e-mail verification until 5 minutes, otherwise the account is deleted from the database.
+
+## Private socket APIs
+
+The socket server side has exclusive APIs at the HTTP server side.
+
+* The secret bridge key allows solely the socket server side to access these APIs from the HTTP server side.
+* Avoid signing into account by instead taking advantage of the secret bridge key.
