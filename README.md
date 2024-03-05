@@ -21,17 +21,28 @@ Planned features:
 
 Use the [discussion forum](https://github.com/hydroper/fortoresseXY/discussions) available in this repository to discuss and share ideas.
 
-## Environment variables
+## Environment setup
 
-For the client side project, do the following steps:
+* For the client side project, do the following steps:
+  * Copy the **.env-example.txt** file into a new **.env.txt** file.
+  * Assign the environment variables in that .env.txt file properly.
+* For each of the server side projects, do the following steps:
+  * Copy the **.env-example** file into a new **.env** file.
+  * Assign the environment variables in that .env file properly.
+* Setup the HTTP server side by running the following commands:
 
-* Copy the **.env-example.txt** file into a new **.env.txt** file.
-* Assign the environment variables in that .env.txt file properly.
+```sh
+cd fortoresseXY.httpServer
+npm install
+npx prisma generate
+```
 
-For each of the server side projects, do the following steps:
+* Setup the socket server side by running the following commands:
 
-* Copy the **.env-example** file into a new **.env** file.
-* Assign the environment variables in that .env file properly.
+```sh
+cd ../fortoresseXY.socketServer
+npm install
+```
 
 ## Client side
 
@@ -65,8 +76,8 @@ Client side reconsiderations:
 
 Requirements:
 
-* AIR SDK
-* Node.js
+* [AIR SDK](https://airsdk.dev/docs/basics/getting-started)
+* [Node.js](https://nodejs.org)
 * Install `asconfigc` through the command `npm i -g asconfigc`
 
 Debug the client through the following commands:

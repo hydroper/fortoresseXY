@@ -16,20 +16,23 @@ datasource db {
 model IpUser {
   id                          BigInt      @id @default(autoincrement())
   lastAccountCreationAttempt  DateTime?
-  lastSignInAttempt           DateTime?
+  lastSignInFailure           DateTime?
 }
 
 model User {
   id                 BigInt                 @id @default(autoincrement())
   username           String                 @unique
   email              String                 @unique
+  emailIsVerified    Boolean
+  // HMAC-SHA-256 encoded password
   password           String
   authoringServers   UserAuthoringServer[]
   accountCreation    DateTime               @default(now())
   look               String
+  serverProperties   ServerUserProperty[]
 }
 
-model UserServer {
+model Server {
   id                  BigInt                 @id @default(autoincrement())
   authoringUsers      UserAuthoringServer[]
   // Identifier URL
@@ -43,12 +46,32 @@ model UserServer {
   // A JavaScript program that runs in an isolated V8 environment through isolated-vm.
   // https://www.npmjs.com/package/isolated-vm
   script              Bytes
+  properties          ServerProperty[]
+  userProperties      ServerUserProperty[]
 }
 
 model UserAuthoringServer {
   user                User        @relation(fields: [userId], references: [id])
   userId              BigInt
-  server              UserServer  @relation(fields: [serverId], references: [id])
+  server              Server      @relation(fields: [serverId], references: [id])
   serverId            BigInt
   @@id([userId, serverId])
+}
+
+model ServerProperty {
+  id                  BigInt       @id @default(autoincrement())
+  server              Server       @relation(fields: [serverId], references: [id])
+  serverId            BigInt
+  propertyName        String
+  propertyValue       Bytes
+}
+
+model ServerUserProperty {
+  id                  BigInt       @id @default(autoincrement())
+  server              Server       @relation(fields: [serverId], references: [id])
+  serverId            BigInt
+  user                User         @relation(fields: [userId], references: [id])
+  userId              BigInt
+  propertyName        String
+  propertyValue       Bytes
 }
