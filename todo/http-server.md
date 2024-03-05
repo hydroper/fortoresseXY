@@ -19,6 +19,13 @@ Validation after filling the required fields:
     1. Else return failure response.
 4. Require e-mail verification until 5 minutes, otherwise the account is deleted from the database.
 
+## E-mail verification
+
+During e-mail verification:
+
+* If the e-mail is the initial e-mail, allow to delete the account (in case of unwanted account creation).
+* If the e-mail is for an e-mail change, the e-mail only updates in the database after e-mail verification succeeds.
+
 ## Private socket APIs
 
 The socket server side has exclusive APIs at the HTTP server side.
