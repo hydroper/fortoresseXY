@@ -114,9 +114,13 @@ run\run-server
 
 The socket server side uses Node.js and is still beginning.
 
+[![](https://img.shields.io/badge/JSDoc-gray)](https://jsdoc.app)
 [![](https://img.shields.io/badge/Matter%20Physics-gray)](https://brm.io/matter-js)
 [![](https://img.shields.io/badge/WebSocket-gray)](https://www.npmjs.com/package/ws)
 
 ### HTTP server side
 
 The HTTP server side uses Node.js and is still beginning.
+
+[![](https://img.shields.io/badge/JSDoc-gray)](https://jsdoc.app)
+[![](https://img.shields.io/badge/Prisma-gray)](https://www.prisma.io/docs/orm)

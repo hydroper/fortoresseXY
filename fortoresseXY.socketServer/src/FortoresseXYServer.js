@@ -1,22 +1,35 @@
 import "dotenv/config";
 import WebSocket, { RawData, WebSocketServer } from "ws";
-import { OptionValues, program } from "commander";
+import { program } from "commander";
 import { Bodies, Composite, Engine } from "matter-js";
-import { Peer } from "fortoresseXY/Peer";
-import { PressButtonPacket } from "fortoresseXY/packets/PressButtonPacket";
-import { WorldEntityPacket, WorldPacket } from "fortoresseXY/packets/WorldPacket";
+import { Peer } from "./Peer";
+import { PacketType } from "./packets/PacketType";
+import { PressButtonPacket } from "./packets/PressButtonPacket";
+import { WorldEntityPacket, WorldPacketEntityType } from "./packets/WorldPacket";
 
-const frameRate: number = 60;
+const frameRate = 60;
 
 class FortoresseXYServer {
-    private stopSchedule: Date | null = null;
-    private wss: WebSocketServer | null = null;
-    private readonly peers: Map<WebSocket, Peer> = new Map<WebSocket, Peer>;
-    private readonly engine: Engine = Engine.create({
+    /**
+     * @type {Date | null}
+     */
+    stopSchedule = null;
+    /**
+     * @type {WebSocketServer | null}
+     */
+    wss = null;
+    /**
+     * @type {Map<WebSocket, Peer>}
+     */
+    peers = new Map;
+    /**
+     * @type {Engine}
+     */
+    engine = Engine.create({
         gravity: { x: 0, y: 10, scale: 1 },
     });
 
-    public constructor() {
+    constructor() {
         // Parse command line
         const options = this.parseCommandLine();
         const port = Number(options.port);
@@ -28,13 +41,13 @@ class FortoresseXYServer {
         this.simulationLoop();
     }
 
-    private parseCommandLine(): OptionValues {
+    parseCommandLine() {
         program.option("--port <port>");
         program.parse();
         return program.opts();
     }
 
-    private initialize(port: number): void {
+    initialize(port) {
         this.wss = new WebSocketServer({
             port,
         });
@@ -45,35 +58,35 @@ class FortoresseXYServer {
         Composite.add(this.engine.world, [ground]);
 
         // Auto close if no immediate connection occurs
-        setTimeout((): void => {
+        setTimeout(() => {
             this.autoClose();
         }, 5_000);
     }
 
-    private handleConnection(ws: WebSocket): void {
+    handleConnection(ws) {
         const peer = new Peer(ws);
         this.peers.set(ws, peer);
 
         // Handle error
-        ws.on("error", (error: Error): void => {
+        ws.on("error", (error) => {
             this.peers.delete(ws);
             console.error(error.message);
             this.autoClose();
         });
 
         // Handle close
-        ws.on("close", (): void => {
+        ws.on("close", () => {
             this.peers.delete(ws);
             this.autoClose();
         });
 
-        ws.on("open", (): void => {
+        ws.on("open", () => {
             // Test spawning
             peer.spawn(this.engine);
         });
 
         // Handle message
-        ws.on("message", (dataBuffer: RawData, isBinary: boolean): void => {
+        ws.on("message", (dataBuffer, isBinary) => {
             if (dataBuffer instanceof Buffer && !isBinary) {
                 const data = JSON.parse(dataBuffer.toString("utf8"));
                 this.handleMessageJSON(peer, data);
@@ -81,23 +94,23 @@ class FortoresseXYServer {
         });
     }
 
-    private handleMessageJSON(peer: Peer, data: any): void {
-        if (data.type == "pressButton") {
-            peer.handlePressButtonPacket(data as PressButtonPacket);
+    handleMessageJSON(peer, data) {
+        if (data.type == PacketType.PRESS_BUTTON) {
+            peer.handlePressButtonPacket(data);
         }
     }
 
-    private autoClose(): void {
+    autoClose() {
         if (this.peers.size == 0) {
             this.stopSchedule = new Date();
         }
     }
 
-    private simulationLoop(): void {
-        let lastTickMs: number = Date.now();
+    simulationLoop() {
+        let lastTickMs = Date.now();
         this.simulate(Date.now() - lastTickMs);
 
-        const interval = setInterval((): void => {
+        const interval = setInterval(() => {
             // Handle execution stop
             if (this.stopSchedule != null && Date.now() >= this.stopSchedule.valueOf()) {
                 clearInterval(interval);
@@ -111,7 +124,7 @@ class FortoresseXYServer {
         }, 1_000 / frameRate);
     }
 
-    private simulate(delta: number): void {
+    simulate(delta) {
         // Move humans
         this.moveHumans();
 
@@ -122,7 +135,7 @@ class FortoresseXYServer {
         this.sendWorldPackets();
     }
 
-    private moveHumans(): void {
+    moveHumans() {
         for (const [, peer] of this.peers) {
             if (peer.human != null) {
                 peer.human.move();
@@ -130,20 +143,20 @@ class FortoresseXYServer {
         }
     }
 
-    private sendWorldPackets(): void {
+    sendWorldPackets() {
         const worldPacket = JSON.stringify(this.worldPacket());
         for (const [ws, ] of this.peers) {
             ws.send(worldPacket);
         }
     }
 
-    private worldPacket(): WorldPacket {
-        const entities: WorldEntityPacket[] = [];
+    worldPacket() {
+        const entities = [];
         for (const [, peer] of this.peers) {
             const { human } = peer;
             if (human != null) {
                 entities.push({
-                    type: "human",
+                    type: WorldPacketEntityType.HUMAN,
                     playerId: peer.playerId,
                     x: human.body.position.x,
                     y: human.body.position.y,
@@ -154,7 +167,7 @@ class FortoresseXYServer {
             }
         }
         return {
-            type: "world",
+            type: PacketType.WORLD,
             entities,
         };
     }

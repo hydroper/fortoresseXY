@@ -1,93 +1,102 @@
 import { Body, Vector } from "matter-js";
-import { PressButtonPacket } from "fortoresseXY/packets/PressButtonPacket";
+import { PressButtonPacket, ButtonPacketType } from "./packets/PressButtonPacket";
 
-const moveSpeed: number = 28;
-const maxMoveSpeed: number = 32;
-const jumpForce: number = 32;
+const moveSpeed = 28;
+const maxMoveSpeed = 32;
+const jumpForce = 32;
 
 export class Human {
-    public body: Body;
-    private facingDirection: string = "right";
-    public isMoving: boolean = false;
-    public pose: HumanPoseType = "standing";
+    /**
+     * @type {Body}
+     */
+    body;
+    facingDirection = "right";
+    isMoving = false;
+    pose = "standing";
 
-    public constructor(body: Body) {
+    /**
+     * @param {Body} body
+     */
+    constructor(body) {
         this.body = body;
     }
 
-    public get facingLeft(): boolean {
+    get facingLeft() {
         return this.facingDirection == "left";
     }
 
-    public set facingLeft(value: boolean) {
+    set facingLeft(value) {
         this.facingDirection = value ? "left" : "right";
     }
 
-    public get facingRight(): boolean {
+    get facingRight() {
         return this.facingDirection == "right";
     }
 
-    public set facingRight(value: boolean) {
+    set facingRight(value) {
         this.facingDirection = value ? "right" : "left";
     }
 
-    public handlePressButtonPacket(packet: PressButtonPacket): void {
+    /**
+     * @param {PressButtonPacket} packet 
+     */
+    handlePressButtonPacket(packet) {
         switch (packet.buttonType) {
-            case "jump":
+            case ButtonPacketType.JUMP:
                 if (!packet.releaseButton) {
                     this.jump();
                 }
                 break;
-            case "moveLeft":
+            case ButtonPacketType.MOVE_LEFT:
                 if (packet.releaseButton) {
                     if (this.facingLeft) {
                         this.isMoving = false;
-                        this.pose = "standing";
+                        this.pose = HumanPoseType.STANDING;
                     }
                 } else {
                     this.isMoving = true;
-                    this.pose = "moving";
+                    this.pose = HumanPoseType.MOVING;
                     this.facingLeft = true;
                 }
                 break;
-            case "moveRight":
+            case ButtonPacketType.MOVE_RIGHT:
                 if (packet.releaseButton) {
                     if (this.facingRight) {
                         this.isMoving = false;
-                        this.pose = "standing";
+                        this.pose = HumanPoseType.STANDING;
                     }
                 } else {
                     this.isMoving = true;
-                    this.pose = "moving";
+                    this.pose = HumanPoseType.MOVING;
                     this.facingRight = true;
                 }
                 break;
-            case "sit":
+            case ButtonPacketType.SIT:
                 if (packet.releaseButton) {
                     if (!this.isMoving) {
-                        this.pose = "standing";
+                        this.pose = HumanPoseType.STANDING;
                     }
                 } else {
-                    this.pose = "sitting";
+                    this.pose = HumanPoseType.SITTING;
                 }
                 break;
         }
     }
 
-    public get flyingOrFalling(): boolean {
+    get flyingOrFalling() {
         const v = Body.getVelocity(this.body);
         return v.y < -0.25 || v.y > 0.25;
     }
     
-    public jump(): void {
-        if (this.pose == "jumping" || this.flyingOrFalling) {
+    jump() {
+        if (this.pose == HumanPoseType.JUMPING || this.flyingOrFalling) {
             return;
         }
-        this.pose = "jumping";
+        this.pose = HumanPoseType.JUMPING;
         Body.applyForce(this.body, this.body.position, Vector.create(0, -jumpForce));
     }
 
-    public move(): void {
+    move() {
         if (this.facingLeft && this.isMoving) {
             Body.applyForce(this.body, this.body.position, Vector.create(-moveSpeed, 0));
         } else if (this.facingRight && this.isMoving) {
@@ -95,8 +104,8 @@ export class Human {
         }
 
         // Finish jumping
-        if (this.pose == "jumping" && !this.flyingOrFalling) {
-            this.pose = "standing";
+        if (this.pose == HumanPoseType.JUMPING && !this.flyingOrFalling) {
+            this.pose = HumanPoseType.STANDING;
         }
 
         const v = Body.getVelocity(this.body);
@@ -110,8 +119,9 @@ export class Human {
     }
 }
 
-export type HumanPoseType =
-    "standing"|
-    "sitting" |
-    "jumping" |
-    "moving";
+export const HumanPoseType = {
+    STANDING: "standing",
+    SITTING: "sitting",
+    JUMPING: "jumping",
+    MOVING: "moving",
+};

@@ -2,9 +2,9 @@ import "dotenv/config";
 import express from "express";
 
 class FortoresseXYServer {
-    private application: express.Application;
+    application;
 
-    public constructor() {
+    constructor() {
         this.application = express();
         this.application.listen(process.env.PORT);
     }

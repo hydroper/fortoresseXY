@@ -8,10 +8,7 @@ class Main {
     }
 
     async initialize() {
-        changeDirectory("fortoresseXY.socketServer");
-        await this.run("npm run build");
         changeDirectory("../fortoresseXY.httpServer");
-        await this.run("npm run build");
         await this.run("npm start");
     }
 
