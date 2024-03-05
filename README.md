@@ -112,6 +112,8 @@ run\run-server
 
 ### Socket server side
 
+The socket server side is launched when a server is instantiated by at least one player. The list of active socket servers is managed by the HTTP server side.
+
 The socket server side uses Node.js and is still beginning.
 
 [![](https://img.shields.io/badge/JSDoc-gray)](https://jsdoc.app)
