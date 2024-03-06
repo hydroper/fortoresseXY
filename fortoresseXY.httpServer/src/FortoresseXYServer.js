@@ -4,7 +4,7 @@ import express from "express";
 import cors from "cors";
 import { SocketAPI } from "./socketAPI/SocketAPI";
 import { Ipware } from "@fullerstack/nax-ipware";
-import { splitListString } from "./util/splitListString";
+import { splitAddressListString } from "./util/splitAddressListString";
 
 const ipware = new Ipware();
 
@@ -29,11 +29,14 @@ class FortoresseXYServer {
     }
 
     retrieveRequestIP() {
-        const trustedProxies = splitListString(process.env.TRUSTED_PROXIES);
+        const trustedProxies = splitAddressListString(process.env.TRUSTED_PROXIES);
+        const privateIpPrefixes = splitAddressListString(process.env.PRIVATE_IP_PREFIXES);
 
         this.application.use((request, response, next) => {
             request.ipInfo = ipware.getClientIP(request, {
+                privateIpPrefixes,
                 proxy: {
+                    count,
                     proxyList: trustedProxies,
                 },
             });

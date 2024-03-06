@@ -1,7 +1,7 @@
 /**
  * @param {string} string
  */
-export function splitListString(string) {
+export function splitAddressListString(string) {
     const list = string.split(",").map(p => p.trim());
     const emptyIndices = [];
     for (let i = 0; i < list.length; ++i) {
@@ -12,5 +12,5 @@ export function splitListString(string) {
     for (const i of emptyIndices) {
         list.splice(i, 1);
     }
-    return list;
+    return list.length == 0 ? [] : list;
 }
