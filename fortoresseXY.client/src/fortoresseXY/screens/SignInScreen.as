@@ -167,7 +167,7 @@ package fortoresseXY.screens {
 
             // Logo
             const logo: Bitmap = new FortoresseXYImages.logo() as Bitmap;
-            logo.scaleX = logo.scaleY = 0.5;
+            logo.scaleX = logo.scaleY = 0.4;
             logo.smoothing = true;
             group1.addChild(logo);
 
