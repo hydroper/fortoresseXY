@@ -2,7 +2,7 @@
   <img src="./assets/banner.png">
 </p>
 
-> NOTICE: the logo is currently a copy of the original Fortoresse's game logo with certain modifications at the flags.
+> Disclaimer: the logo is a light modification of the original Fortoresse's game logo by Atelier 801.
 
 Fortoresse XY is an open world, 2D shooter multiplayer game in early development.
 
@@ -15,7 +15,6 @@ Fortoresse XY has its roots from the original Fortoresse game by the Atelier 801
 
 Planned features:
 
-* Native servers
 * User servers
   * Scripting
 
