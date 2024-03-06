@@ -2,7 +2,7 @@
 
 ## Sign in
 
-Sign in includes IP and captcha validation, similiar to the account creation validation.
+Sign in includes IP validation, similiar to the account creation validation.
 
 ## Account creation
 

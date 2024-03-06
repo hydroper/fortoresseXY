@@ -15,6 +15,7 @@ datasource db {
 
 model IpUser {
   id                          BigInt      @id @default(autoincrement())
+  address                     String      @unique
   lastAccountCreationAttempt  DateTime?
   lastSignInFailure           DateTime?
 }

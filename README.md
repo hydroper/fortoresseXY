@@ -106,6 +106,13 @@ The HTTP server side is responsible for communicating with the Fortoresse XY's d
 
 [![](https://img.shields.io/badge/Prisma-gray)](https://www.prisma.io/docs/orm)
 
+Initiate the database by running the following commands:
+
+```sh
+cd fortoresseXY.httpServer
+npx prisma migrate dev
+```
+
 ## Server side
 
 Run the server through the following commands:
