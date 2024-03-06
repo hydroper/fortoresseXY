@@ -2,7 +2,9 @@
   <img src="./assets/banner.png">
 </p>
 
-Fortoresse XY is a free world, 2D shooter multiplayer game in early development.
+> NOTICE: the logo is currently a copy of the original Fortoresse's game logo with certain modifications at the flags.
+
+Fortoresse XY is an open world, 2D shooter multiplayer game in early development.
 
 ## Origins
 
