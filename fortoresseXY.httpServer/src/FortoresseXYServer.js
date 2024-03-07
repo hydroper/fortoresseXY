@@ -36,7 +36,6 @@ class FortoresseXYServer {
             request.ipInfo = ipware.getClientIP(request, {
                 privateIpPrefixes,
                 proxy: {
-                    count,
                     proxyList: trustedProxies,
                 },
             });
