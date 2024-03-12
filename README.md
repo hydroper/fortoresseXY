@@ -2,25 +2,25 @@
   <img src="./assets/banner.png">
 </p>
 
-> Disclaimer: the logo is a light modification of the original Fortoresse's game logo by Atelier 801.
-
 Fortoresse XY is an open world, 2D shooter multiplayer game in early development.
 
-## Update
+## Disclaimer
 
-This project was just beginning and only contained more structuring and preparations for the game. It is paused for the following reasons:
+The game uses assets from the original Fortoresse's game by Atelier 801, including:
 
-* TypeScript is discarded due to version incompatibilities between dependencies
-* Using JSDoc comments for type annotations is time consuming
+* Logo (slightly modified for the XY)
 
-I apologize for anyone having hopes on this project, but the technologies I have domain of did not work well.
+## Status
+
+The work is going variable on this project. I've almost gave up due to lack of interest and some technology considerations, but I'm still sometimes returning to it.
 
 ## Origins
 
-Fortoresse XY has its roots from the original Fortoresse game by the Atelier 801 company. There are several differences planned:
+Fortoresse XY inspires from the original Fortoresse game by the Atelier 801 company. There are several differences planned:
 
 * Crossing endpoints of a level would lead to another level.
 * Pixel buildings would be substituted by higher buildings, such as breakable shields and slopes.
+* The game is composed of user servers.
 
 Planned features:
 
@@ -42,7 +42,7 @@ Use the [discussion forum](https://github.com/hydroper/fortoresseXY/discussions)
 * Setup the HTTP server side by running the following commands:
 
 ```sh
-cd fortoresseXY.httpServer
+cd FortoresseXYServer
 npm install
 npx prisma generate
 ```
@@ -50,7 +50,7 @@ npx prisma generate
 * Setup the socket server side by running the following commands:
 
 ```sh
-cd ../fortoresseXY.socketServer
+cd ../FortoresseXYSocketServer
 npm install
 ```
 
@@ -118,7 +118,7 @@ The HTTP server side is responsible for communicating with the Fortoresse XY's d
 Initiate the database by running the following commands:
 
 ```sh
-cd fortoresseXY.httpServer
+cd FortoresseXYServer
 npx prisma migrate dev
 ```
 

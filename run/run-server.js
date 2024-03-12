@@ -8,7 +8,7 @@ class Main {
     }
 
     async initialize() {
-        changeDirectory("../fortoresseXY.httpServer");
+        changeDirectory("../FortoresseXYServer");
         await this.run("npm start");
     }
 

@@ -1,3 +1,3 @@
 #!/bin/sh
-asconfigc -p fortoresseXY.client
-adl fortoresseXY.client/app.xml
+asconfigc -p FortoresseXYClient
+adl FortoresseXYClient/app.xml

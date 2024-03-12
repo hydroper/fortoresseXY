@@ -1,5 +1,5 @@
 {
-  "name": "fortoresseXY.httpServer",
+  "name": "FortoresseXYServer",
   "version": "1.0.0",
   "description": "Server",
   "type": "module",

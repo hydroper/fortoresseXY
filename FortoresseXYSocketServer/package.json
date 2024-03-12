@@ -1,5 +1,5 @@
 {
-  "name": "fortoresseXY.socketServer",
+  "name": "FortoresseXYSocketServer",
   "version": "1.0.0",
   "description": "Server",
   "main": "src/FortoresseXYServer.js",
