@@ -6,11 +6,7 @@ Fortoresse XY is an open world, 2D shooter multiplayer game in early development
 
 ## Status
 
-The work is going variable on this project. I've almost gave up due to lack of interest and some technology considerations, but I'm considering returning to it, although difficultly due to lack of type annotations in JavaScript.
-
-I hope that futurely the [Types as Comments](https://github.com/tc39/proposal-type-annotations) proposal will be realized in ECMAScript and implemented in V8, facilitating the server side projects of Fortoresse XY.
-
-Right now, it is being stressing to, for example, type `/** @type {T} */` for every property. I had the choice of abandoning TypeScript. I had initially started a TypeScript project in this project and got a version conflict when installing the `cors` NPM package. I could have forked the `cors` repository to fix it, but for some reason I did not want to do it, and ended up converting all my code to not use TypeScript. I don't know, maybe I could consider reversing the changes and fork `cors`, but not sure if this is good?
+The project will be paused unless the Types as Comments proposal merges into ECMAScript. I won't use TypeScript, unfortunately.
 
 ## Origins
 
