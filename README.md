@@ -39,7 +39,7 @@ Use the [discussion forum](https://github.com/hydroper/fortoresseXY/discussions)
 * For each of the server side projects, do the following steps:
   * Copy the **.env-example** file into a new **.env** file.
   * Assign the environment variables in that .env file properly.
-* Setup the HTTP server side by running the following commands:
+* Setup the server side by running the following commands:
 
 ```sh
 cd FortoresseXYServer
@@ -106,12 +106,12 @@ run\debug-client
 
 ## Database
 
-The HTTP server side is responsible for communicating with the Fortoresse XY's database. It is oriented to MySQL, but may use any other data source provider.
+The server side is responsible for communicating with the Fortoresse XY's database. It is oriented to MySQL, but may use any other data source provider.
 
 * Install [Apache XAMPP](https://www.apachefriends.org) for local debugging, which provides a MySQL installation in hands and phpMyAdmin for MySQL database management.
 * Initial XAMPP MySQL database URL: `mysql://root@localhost:3306/fortoressexy`.
 * Public MySQL database URL: `mysql://username:password@host.com:port/fortoressexy`.
-* The HTTP server side project uses the [Prisma ORM](https://www.prisma.io/docs/orm).
+* The server side project uses the [Prisma ORM](https://www.prisma.io/docs/orm).
 
 [![](https://img.shields.io/badge/Prisma-gray)](https://www.prisma.io/docs/orm)
 
@@ -140,7 +140,7 @@ run\run-server
 
 ### Socket server side
 
-The socket server side is launched when a server is instantiated by at least one player. The list of active socket servers is managed by the HTTP server side.
+The socket server side (`FortoresseXYSocketServer`) is launched when a server is instantiated by at least one player. The list of active socket servers is managed by the server side.
 
 The socket server side uses Node.js and is still beginning.
 
@@ -148,9 +148,9 @@ The socket server side uses Node.js and is still beginning.
 [![](https://img.shields.io/badge/Matter%20Physics-gray)](https://brm.io/matter-js)
 [![](https://img.shields.io/badge/WebSocket-gray)](https://www.npmjs.com/package/ws)
 
-### HTTP server side
+### Primary server side
 
-The HTTP server side uses Node.js and is still beginning.
+The primary server side (`FortoresseXYServer`) uses Node.js and is still beginning.
 
 [![](https://img.shields.io/badge/JSDoc-gray)](https://jsdoc.app)
 [![](https://img.shields.io/badge/Prisma-gray)](https://www.prisma.io/docs/orm)
