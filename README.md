@@ -1,8 +1,4 @@
-<p align="center">
-  <img src="./assets/banner.png">
-</p>
-
-Fortoresse XY is an open world, 2D shooter multiplayer game in early development.
+# Fortoresse XY
 
 ## Status
 
