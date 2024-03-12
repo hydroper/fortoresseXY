@@ -12,7 +12,7 @@ The game uses assets from the original Fortoresse's game by Atelier 801, includi
 
 ## Status
 
-The work is going variable on this project. I've almost gave up due to lack of interest and some technology considerations, but I'm still sometimes returning to it.
+The work is going variable on this project. I've almost gave up due to lack of interest and some technology considerations, but I'm considering returning to it, although difficulty due to lack of type annotations in JavaScript.
 
 ## Origins
 
