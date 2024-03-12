@@ -4,12 +4,6 @@
 
 Fortoresse XY is an open world, 2D shooter multiplayer game in early development.
 
-## Disclaimer
-
-The game uses assets from the original Fortoresse's game by Atelier 801, including:
-
-* Logo (slightly modified for the XY)
-
 ## Status
 
 The work is going variable on this project. I've almost gave up due to lack of interest and some technology considerations, but I'm considering returning to it, although difficultly due to lack of type annotations in JavaScript.
